@@ -7,10 +7,15 @@ app.use(express.json());
 
 // Connection To The Databse
 mongoose.connect(
-    "mongodb+srv://root:10xacademy@cluster0.hpnp08y.mongodb.net/?retryWrites=true&w=majority/test"
+    "mongodb+srv://root:10xacademy@cluster0.hpnp08y.mongodb.net/?retryWrites=true&w=majority"
 ).then(() => console.log('Connected To the Database'));
 
-app.listen(process.env.PORT || 3000, () => {
+
+const user = require("./routes/user")
+app.use(user)
+
+
+app.listen(process.env.PORT || 5000, () => {
     console.log("Server running on port 3000");
 });
 

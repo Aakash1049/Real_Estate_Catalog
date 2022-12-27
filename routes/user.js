@@ -5,11 +5,11 @@ const router= express.Router()
 
 
 
-router.get("/login",(req,res)=>{
+// router.get("/",(req,res)=>{
 
 
-    res.send("user succefully logged in")
-})
+//     res.send("user succefully logged in")
+// })
 
 router.post("/signUp",async (req,res)=>{
 

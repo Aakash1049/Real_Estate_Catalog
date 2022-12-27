@@ -12,10 +12,13 @@ mongoose.connect(
 
 
 const user = require("./routes/user")
-app.use(user)
+app.use(user);
+
+const property = require("./routes/property")
+app.use(property);
 
 
 app.listen(process.env.PORT || 5000, () => {
-    console.log("Server running on port 3000");
+    console.log("Server running on port 5000");
 });
 

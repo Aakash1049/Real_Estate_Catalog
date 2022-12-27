@@ -1,4 +1,5 @@
 const express= require("express");
+const { isAuthenticated } = require("../auth");
 const Property= require("../models/Property");
 
 const router= express.Router();
@@ -16,7 +17,7 @@ router.get("/",async(req,res)=>{
 
 
 
-router.post("/addProperty",async(req,res)=>{
+router.post("/addProperty",isAuthenticated, async(req,res)=>{
     try{
         // const {propertyType,negotiable, price, ownership} = req.body;
         let  property = await Property.create(req.body);

@@ -1,7 +1,11 @@
 {
   "name": "real_estate_catalog",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "Real Estate Project",
+=======
+  "description": "10x Capstone Project",
+>>>>>>> 1404ba328ea733283bbeec6e545ad5bbc24fe5e7
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,8 +22,10 @@
   "homepage": "https://github.com/Aakash1049/Real_Estate_Catalog#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "mongodb": "^4.13.0",
+<<<<<<< HEAD
     "mongoose": "^6.8.1",
+=======
+>>>>>>> 1404ba328ea733283bbeec6e545ad5bbc24fe5e7
     "nodemon": "^2.0.20"
   }
 }

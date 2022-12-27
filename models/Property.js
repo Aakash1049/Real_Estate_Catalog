@@ -74,6 +74,10 @@ const PropertySchema= new mongoose.Schema({
         type:String,
         enum: ['Owner', 'Agent']
     },
+    saleType:{
+        type:String,
+        enum: ['Sold', 'Unsold']
+    },
     featuredPackage:{
         type:String
     },

@@ -83,7 +83,7 @@ const PropertySchema= new mongoose.Schema({
     photo:String,
     email:String,
     city:String,
-    area:Number,
+    area:String,
     pinCode:Number,
     address:String,
     landmark:String,

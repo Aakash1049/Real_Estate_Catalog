@@ -1,12 +1,11 @@
 const express= require("express")
 const User= require("../models/User")
 
-const router= express.Router();
-const jwt = require('jsonwebtoken');
-const mongoose = require("mongoose");
+const router= express.Router()
 
 
-
+<<<<<<< HEAD
+=======
 
 // router.get("/",(req,res)=>{
 
@@ -14,6 +13,7 @@ const mongoose = require("mongoose");
 //     res.send("user succefully logged in")
 // })
 
+>>>>>>> c084f5d77e781631d5c756f80f0ffaa0eeb0a169
 router.post("/signUp",async (req,res)=>{
 
     try {
@@ -47,11 +47,12 @@ router.post("/signIn",async (req,res)=>{
                 message:"user does not exists"
             })
         }        
-        if(password==user.password){
-            res.json({user, message:"logged in succesfully"})
+        if(password!=user.password){
+            res.json({message:"password does not match"})
         }
         else {
-            res.json({message:"password does not match"})
+            token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET)
+            res.json({user,token, message:"logged in succesfully"})
         }
 
     } catch (error) {

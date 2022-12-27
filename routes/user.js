@@ -4,8 +4,6 @@ const User= require("../models/User")
 const router= express.Router()
 
 
-<<<<<<< HEAD
-=======
 
 // router.get("/",(req,res)=>{
 
@@ -13,7 +11,6 @@ const router= express.Router()
 //     res.send("user succefully logged in")
 // })
 
->>>>>>> c084f5d77e781631d5c756f80f0ffaa0eeb0a169
 router.post("/signUp",async (req,res)=>{
 
     try {

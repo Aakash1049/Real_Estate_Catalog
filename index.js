@@ -9,6 +9,8 @@ if(process.env.NODE_ENV !== "production"){
 
 app.use(express.json());
 
+
+
 // Connection To The Databse
 mongoose.connect(
     process.env.MONGO_URI
@@ -16,10 +18,13 @@ mongoose.connect(
 
 
 const user = require("./routes/user")
-app.use(user)
+app.use(user);
+
+const property = require("./routes/property")
+app.use(property);
 
 
-app.listen(process.env.PORT || 5000, () => {
-    console.log("Server running on port 3000");
+app.listen(process.env.PORT || 8000, () => {
+    console.log("Server running on port 8000");
 });
 

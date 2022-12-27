@@ -1,15 +1,8 @@
 const express= require("express")
 const User= require("../models/User")
-
+const jwt = require("jsonwebtoken")
 const router= express.Router()
 
-
-
-router.get("/login",(req,res)=>{
-
-
-    res.send("user succefully logged in")
-})
 
 router.post("/signUp",async (req,res)=>{
 
@@ -44,11 +37,12 @@ router.post("/signIn",async (req,res)=>{
                 message:"user does not exists"
             })
         }        
-        if(password==user.password){
-            res.json({user, message:"logged in succesfully"})
+        if(password!=user.password){
+            res.json({message:"password does not match"})
         }
         else {
-            res.json({message:"password does not match"})
+            token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET)
+            res.json({user,token, message:"logged in succesfully"})
         }
 
     } catch (error) {

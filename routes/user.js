@@ -14,7 +14,12 @@ router.get("/login",(req,res)=>{
 router.post("/signUp",async (req,res)=>{
 
     try {
-        let {email, password} = req.body
+        let {email, password, confirmpassword} = req.body
+        if(password!==confirmpassword){
+            return res.json({
+                message:"Password and confirm password does not match"
+            })
+        }
         let user = await User.findOne({email})
         if(user){
             return res.send("user already exits")
@@ -29,7 +34,7 @@ router.post("/signUp",async (req,res)=>{
 
 })
 
-router.get("/signIn",async (req,res)=>{
+router.post("/signIn",async (req,res)=>{
 
     try {
         let {email, password} = req.body

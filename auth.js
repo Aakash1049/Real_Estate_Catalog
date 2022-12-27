@@ -11,7 +11,6 @@ exports.isAuthenticated = async function(req,res,next){
     }
     let token=authorization.replace("Bearer ","")
     const decoded= jwt.verify(token, process.env.JWT_SECRET)
- 
     req.user = await User.findById(decoded._id)
     next()
    } catch (error){

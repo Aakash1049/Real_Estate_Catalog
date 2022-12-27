@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 const PropertySchema= new mongoose.Schema({
-
+    PPDID:{type:String, unique:true},
     propertyType:{
         type:String,
         enum:['Home','Plot','Flat']

@@ -25,8 +25,9 @@ router.get("/search",async(req,res)=>{
 router.post("/addProperty",isAuthenticated, async(req,res)=>{
     try{
         // const {propertyType,negotiable, price, ownership} = req.body;
-        let PPDID="PPD"+ Math.floor(1000 + Math.random() * 9000)
+        let PPDID
         for(let i=0;;i++){
+            PPDID="PPD"+ Math.floor(1000 + Math.random() * 9000)
             let prop = await Property.findOne({PPDID})
             if(prop){
                 continue
@@ -38,7 +39,8 @@ router.post("/addProperty",isAuthenticated, async(req,res)=>{
         
     }
     catch(e){
-        res.json({e});
+        console.log("err is here")
+        res.json({message:e.message});
     }
 });
 

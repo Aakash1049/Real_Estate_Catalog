@@ -6,6 +6,7 @@ const { body, validationResult } = require('express-validator');
 const bodyparser = require("body-parser");
 
 const router= express.Router();
+const jwt = require("jsonwebtoken")
 
 router.post("/signUp",
     body('email').isEmail(),

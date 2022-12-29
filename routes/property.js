@@ -35,8 +35,8 @@ router.post("/addProperty",isAuthenticated, async(req,res)=>{
             }
             else break
         }
-        let  property = await Property.create({...req.body,PPDID});
-        console.log(req.body, property,  "After Setting")
+        let  property = await Property.create({...req.body.data,PPDID});
+        // console.log(req.body, property,  "After Setting")
         res.json({property, message:"Property Added Succesfully"})
         
     }

@@ -9,7 +9,7 @@ const router= express.Router();
 
 
 router.get("/getAllProperties",async(req,res)=>{
-    console.log("enterned backend")
+    // console.log("enterned backend")
     try{
         const data = await Property.find();
         res.json(data)
@@ -20,14 +20,15 @@ router.get("/getAllProperties",async(req,res)=>{
 })
 
 
-router.get("/search",async(req,res)=>{ 
-    let pattern= new RegExp("^"+req.body.search)    
+router.get("/search/:search",async(req,res)=>{ 
+    let pattern= new RegExp("^"+req.params.search)    
     let property = await Property.find({PPDID:{$regex:pattern}})
-    res.json({property})
+    // console.log(property,"search results")
+    res.json(property)
 })
 
 router.post("/addProperty",isAuthenticated, async(req,res)=>{
-    console.log(req.body, "Before Setting");
+    // console.log(req.body, "Before Setting");
     try{
         // const {propertyType,negotiable, price, ownership} = req.body;
         let PPDID

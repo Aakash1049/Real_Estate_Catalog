@@ -78,7 +78,7 @@ const PropertySchema= new mongoose.Schema({
     },
     saleType:{
         type:String,
-        enum: ['Sold', 'Unsold']
+       // enum: ['Sold', 'Unsold']
     },
     featuredPackage:{
         type:String

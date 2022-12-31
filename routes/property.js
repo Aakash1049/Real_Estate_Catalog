@@ -5,6 +5,9 @@ const Property= require("../models/Property");
 const router= express.Router();
 
 
+
+
+
 router.get("/getAllProperties",async(req,res)=>{
     console.log("enterned backend")
     try{

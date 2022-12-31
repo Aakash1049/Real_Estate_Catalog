@@ -5,7 +5,27 @@ const Property= require("../models/Property");
 const router= express.Router();
 
 
+router.put("/updateProperty/:PPDID", async (req,res)=>{
+    try{
 
+        const property = await Property.find({PPDID:req.params.PPDID})
+    if(property.saleType=="Sold"){
+        
+        return res.json({message:"Property already sold"})
+    }
+         
+        const UpdatedProperty = await Property.updateOne({PPDID:req.params.PPDID},{$set:{saleType:"Sold",Days:0}})
+        res.json({
+
+            message:"Property Sold",
+            UpdatedProperty
+        })
+
+
+    }catch(e){
+        res.json(e.message)
+    }
+})
 
 
 router.get("/getAllProperties",async(req,res)=>{

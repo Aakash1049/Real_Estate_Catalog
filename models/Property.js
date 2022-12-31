@@ -6,6 +6,8 @@ const PropertySchema= new mongoose.Schema({
         type:String,
         enum:['Home','Plot','Flat']
     },
+    Views:Number,
+    Days:Number,
     negotiable:{
         type:String,
         enum: ['Yes', 'No']

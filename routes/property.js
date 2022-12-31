@@ -5,10 +5,11 @@ const Property= require("../models/Property");
 const router= express.Router();
 
 
-router.get("/",async(req,res)=>{
+router.get("/getAllProperties",async(req,res)=>{
+    console.log("enterned backend")
     try{
         const data = await Property.find();
-        res.json({data})
+        res.json(data)
 
     }catch(e){
         res.json({e});

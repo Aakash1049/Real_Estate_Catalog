@@ -14,6 +14,10 @@ router.post("/signUp",
     body('confirmpassword').isLength({ min: 8, max: 16 }),async (req, res) => {
     try {
         // console.log(req.body)
+        let user = await User.findOne({email})
+        if(user){
+            return res.json({error:"user already exits"})
+        };
         let {email, password, confirmpassword} = req.body
         if(password!==confirmpassword){
             return res.json({
@@ -28,10 +32,7 @@ router.post("/signUp",
         
       
         
-        let user = await User.findOne({email})
-        if(user){
-            return res.json({error:"user already exits"})
-        };
+       
         
         bcrypt.hash(password, 10, async function(err, hash){
             // It Will Store hash in the password DB.

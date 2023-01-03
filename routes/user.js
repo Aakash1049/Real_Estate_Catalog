@@ -14,11 +14,12 @@ router.post("/signUp",
     body('confirmpassword').isLength({ min: 8, max: 16 }),async (req, res) => {
     try {
         // console.log(req.body)
+        let {email, password, confirmpassword} = req.body
         let user = await User.findOne({email})
         if(user){
             return res.json({error:"user already exits"})
         };
-        let {email, password, confirmpassword} = req.body
+        
         if(password!==confirmpassword){
             return res.json({
                 error:"Password and confirm password does not match"

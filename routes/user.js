@@ -19,7 +19,6 @@ router.post("/signUp",
         if(user){
             return res.json({error:"user already exits"})
         };
-        
         if(password!==confirmpassword){
             return res.json({
                 error:"Password and confirm password does not match"
